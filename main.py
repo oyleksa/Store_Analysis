@@ -63,15 +63,15 @@ df_top_shops = df_coffee_2023.groupby("store_location")["transaction_qty"].sum()
 # getting top 5 shops
 df_top_5_shops = df_top_shops.sort_values(ascending=False).head(5)
 
-print("Top 5 sklepów z najwyższą sprzedażą kawy w 2023 roku:")
+print("Top 5 stores with the highest coffee sales in 2023:")
 print(df_top_5_shops)
 
 # visualisation
 plt.figure(figsize=(10, 5))
 sns.barplot(x=df_top_5_shops.values, y=df_top_5_shops.index, hue=df_top_5_shops.index, palette="viridis", legend=False)
-plt.xlabel("Liczba sprzedanych jednostek kawy")
-plt.ylabel("Lokalizacja sklepu")
-plt.title("Top 5 sklepów z najwyższą sprzedażą kawy w 2023 roku")
+plt.xlabel("Number of coffee units sold")
+plt.ylabel("Store location")
+plt.title("Top 5 stores with the highest coffee sales in 2023")
 plt.savefig("top_5_shops.png")
 plt.show(block=True)  # Ensure it does not close immediately
 
